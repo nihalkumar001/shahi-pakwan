@@ -1,0 +1,345 @@
+ /* Custom Global Styling Properties Definition Variables */
+:root {
+    --primary-brand: #800020; /* Royal Burgundy */
+    --accent-gold: #ffdf00; /* Yellow Gold */
+    --body-bg: #fdf8f2;
+    --text-dark: #2d2d2d;
+    --card-white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--body-bg);
+    color: var(--text-dark);
+    min-height: 100vh;
+    line-height: 1.5;
+    width: 100%;
+}
+
+/* Scrollbar setup rules */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--body-bg); }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+
+/* Premium Header Configurations Layout */
+.header {
+    background: linear-gradient(135deg, #5c0017 0%, var(--primary-brand) 100%);
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    border-bottom: 4px solid var(--accent-gold);
+    width: 100%;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.logo-circle {
+    font-size: 2.2rem;
+    background: var(--accent-gold);
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.header h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+}
+
+.tagline {
+    font-size: 1rem;
+    color: var(--accent-gold);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Fluid Layout Constraints Grid */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 16px;
+}
+
+/* Owner Contact Ribbon Info Box */
+.shop-ribbon-card {
+    background: var(--card-white);
+    border-left: 5px solid var(--accent-gold);
+    border-right: 5px solid var(--accent-gold);
+    padding: 16px 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.ribbon-info-item {
+    font-size: 0.9rem;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ribbon-info-item strong { color: var(--primary-brand); }
+.ribbon-info-item i { color: var(--primary-brand); font-size: 1rem; }
+
+.section-title {
+    color: var(--primary-brand);
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Sweets Cards Adaptive Fluid Grid Layout */
+.sweets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.sweet-card {
+    background: var(--card-white);
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    border: 1px solid #f1e4d8;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sweet-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(128,0,32,0.12);
+}
+
+/* Overlay Badge Styles */
+.badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 4px 10px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #ffffff;
+    border-radius: 6px;
+    z-index: 10;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.best-seller { background-color: #ff4757; }
+.premium { background-color: #ffa502; }
+.ghee { background-color: #2ed573; }
+.trending { background-color: #1e90ff; }
+.fresh { background-color: #9b59b6; }
+.low-fat { background-color: #2ecc71; }
+
+.sweet-image-container {
+    width: 100%;
+    height: 170px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    background-color: #f8fafc;
+}
+
+.sweet-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.sweet-card:hover .sweet-img { transform: scale(1.06); }
+
+.sweet-card h3 {
+    font-size: 1.2rem;
+    color: #222;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.price-tag {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 0 auto 16px auto;
+    background: #fff9f2;
+    padding: 4px 14px;
+    border-radius: 20px;
+    display: inline-block;
+    border: 1px dashed #ffd000;
+}
+
+.price-tag .rate {
+    font-weight: 800;
+    color: #b32424;
+    font-size: 1.15rem;
+}
+
+.order-btn {
+    background-color: var(--primary-brand);
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Video Wrapper Container Configurations */
+.ad-video-section {
+    margin-top: 40px;
+    text-align: center;
+    background: var(--card-white);
+    padding: 30px 16px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    border: 1px solid #f1e4d8;
+}
+
+.review-stars { font-size: 1.3rem; color: #fbbf24; margin-bottom: 4px; letter-spacing: 1px; }
+.ad-subtext { color: #666; font-size: 0.9rem; margin-bottom: 20px; }
+
+.ad-video-wrapper {
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    border: 3px solid var(--accent-gold);
+    background-color: #000000;
+    aspect-ratio: 16 / 9; 
+}
+
+.ad-video-player { width: 100%; height: 100%; object-fit: cover; display: block; }
+.video-footer-text { font-size: 0.95rem; color: var(--primary-brand); font-weight: 600; margin-top: 15px; font-style: italic; }
+
+/* Dialog Overlay Sheet Modals Layer Controller Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+.modal-content {
+    background-color: var(--card-white);
+    padding: 24px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    position: relative;
+    animation: slideUpTransition 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 92vh;
+    overflow-y: auto;
+    color: #111;
+}
+
+@keyframes slideUpTransition {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 16px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #aaa;
+    transition: color 0.2s;
+}
+.close-btn:hover { color: #333; }
+
+.modal h2 { color: var(--primary-brand); margin-bottom: 12px; font-size: 1.4rem; text-align: center; }
+#selectedSweetText { margin-bottom: 18px; font-size: 0.95rem; background: #fff5f5; padding: 10px; border-radius: 8px; border-left: 4px solid var(--primary-brand); text-align: left; }
+.form-group { margin-bottom: 14px; text-align: left; }
+.form-group label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.85rem; color: #444; }
+
+.form-group input {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid #dcdcdc;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.form-group input:focus { border-color: var(--primary-brand); }
+
+.total-price-box {
+    background: #eafaf1;
+    color: #1a7f43;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: 1.05rem;
+    border: 1px solid #bcead0;
+}
+
+.submit-btn {
+    background-color: #10b981;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+.submit-btn:hover { background-color: #059669; }
