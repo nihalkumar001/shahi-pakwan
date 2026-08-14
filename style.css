@@ -1,10 +1,11 @@
- /* Custom Global Styling Properties Definition Variables */
+/* Custom Global Styling Properties Definition Variables */
 :root {
     --primary-brand: #800020; /* Royal Burgundy */
     --accent-gold: #ffdf00; /* Yellow Gold */
     --body-bg: #fdf8f2;
     --text-dark: #2d2d2d;
     --card-white: #ffffff;
+    --whatsapp-green: #25D366;
 }
 
 * {
@@ -92,7 +93,6 @@ body {
     margin-bottom: 30px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: wrap;
     justify-content: space-between;
     align-items: center;
     gap: 12px;
@@ -224,7 +224,9 @@ body {
     align-items: center;
     justify-content: center;
     gap: 8px;
+    transition: background-color 0.2s;
 }
+.order-btn:hover { background-color: #5c0017; }
 
 /* Video Wrapper Container Configurations */
 .ad-video-section {
@@ -326,20 +328,26 @@ body {
     border: 1px solid #bcead0;
 }
 
-.submit-btn {
-    background-color: #10b981;
+.submit-order-btn {
+    background-color: var(--whatsapp-green);
     color: white;
     border: none;
-    padding: 12px;
+    padding: 13px;
     width: 100%;
     font-size: 1rem;
     font-weight: 600;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
-.submit-btn:hover { background-color: #059669; }
+
+.submit-order-btn:hover {
+    background-color: #20ba5a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
