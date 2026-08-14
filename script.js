@@ -1,27 +1,23 @@
- // Global variables for caching selected states
+// Global variables for caching selected states
 let currentSweet = "";
 let currentPricePerKg = 0;
 
 /**
- * Open the order form sheet window dialog overlay frame context
+ * Open the order form modal and set active sweet details
  */
 function openOrderModal(sweetName, pricePerKg) {
     currentSweet = sweetName;
     currentPricePerKg = pricePerKg;
     
-    // Inject active sweet values onto HTML modal tags
     document.getElementById("sweetName").innerText = sweetName;
     document.getElementById("quantity").value = "1";
     
-    // Trigger total price compilation
     calculateTotal();
-    
-    // Bring the popup dialog structure view into viewport
     document.getElementById("orderModal").style.display = "flex";
 }
 
 /**
- * Collapses the dynamic interactive dialog layers layout panel
+ * Closes the order modal and resets form inputs
  */
 function closeOrderModal() {
     document.getElementById("orderModal").style.display = "none";
@@ -44,17 +40,18 @@ function calculateTotal() {
 }
 
 /**
- * Native Browser Navigation Hook: Injecting text parameters before browser submits the GET request
+ * Prepares the formatted message and redirects the user directly to owner's WhatsApp chat
  */
 function prepareWhatsAppMessage(event) {
-    // Reading live form inputs datasets safely
+    event.preventDefault(); // Default form redirect ko rokne ke liye
+
     const kgValue = document.getElementById("quantity").value;
     const nameValue = document.getElementById("customerName").value.trim();
     const phoneValue = document.getElementById("customerPhone").value.trim();
     const addressValue = document.getElementById("customerAddress").value.trim(); 
     const finalPrice = Math.round(parseFloat(kgValue) * currentPricePerKg);
 
-    // Formatted structural string payload blueprint
+    // WhatsApp Message Formatting (Bold styling ke sath)
     const message = `*Naya Mithai Order Aaya Hai!* 🏪\n\n` +
                     `*Mithai Name:* ${currentSweet}\n` +
                     `*Quantity:* ${kgValue} KG\n` +
@@ -64,32 +61,23 @@ function prepareWhatsAppMessage(event) {
                     `- Contact No: ${phoneValue}\n` +
                     `- Full Address: ${addressValue}`;
 
-    const form = document.getElementById("orderForm");
+    // ⚠️ YAHA APNA WHATSAPP NUMBER DAALEIN (Bina '+' sign ke, jaise: 919234216110)
+    const ownerWhatsAppNumber = "919234216110"; 
     
-    // Cleaning stale hidden elements nodes if existing to avoid stacked parameters strings
-    const oldInput = document.getElementById("hiddenWsText");
-    if (oldInput) oldInput.remove();
-
-    // Dynamically building a hidden form element field to carry the formatted query parameters
-    const hiddenInput = document.createElement("input");
-    hiddenInput.type = "hidden";
-    hiddenInput.name = "text";
-    hiddenInput.id = "hiddenWsText";
-    hiddenInput.value = message;
+    // URL safe string me convert karne ke liye encodeURIComponent
+    const encodedMessage = encodeURIComponent(message);
     
-    // Inject node inside the active sub-tree form structure
-    form.appendChild(hiddenInput);
+    // Direct chat link setup with auto-filled text
+    const whatsappURL = `https://whatsapp.com{ownerWhatsAppNumber}&text=${encodedMessage}`;
 
-    // Fade modal interface view smoothly slightly after launch trigger sequence runs
-    setTimeout(() => {
-        closeOrderModal();
-    }, 600);
+    // WhatsApp open karega new tab ya app me
+    window.open(whatsappURL, "_blank");
 
-    // Return true tells the HTML system to run native browser navigation bypass loops safely
-    return true; 
+    // Modal ko close karega
+    closeOrderModal();
 }
 
-// Background blur overlay window listeners to handle safe dialog unmount configurations
+// Background par click karne se modal close karne ke liye
 window.onclick = function(event) {
     const orderModal = document.getElementById("orderModal");
     if (event.target === orderModal) closeOrderModal();
